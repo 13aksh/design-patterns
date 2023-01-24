@@ -5,6 +5,16 @@ public class Document {
     private String fontName;
     private int fontSize;
 
+    public DocumentState createState() {
+        return new DocumentState(content, fontName, fontSize);
+    }
+
+    public void restoreState (DocumentState documentState) {
+        this.content = documentState.getContent();
+        this.fontName = documentState.getFontName();
+        this.fontSize = documentState.getFontSize();
+    }
+
     public String getContent() {
         return content;
     }
